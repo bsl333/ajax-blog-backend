@@ -1,0 +1,31 @@
+[
+  {
+    "title": "Post 1",
+    "content": "This is my first blog entry, so here's some typical filler text...",
+    "tags": [
+      "joke",
+      "random"
+    ],
+    "date": "Fri June 29th",
+    "id": "26e6780b-0ad2-4329-af5b-ac9f03419323"
+  },
+  {
+    "title": "The Decision",
+    "content": "WHERE WILL LBJ go?!? WIll it be Houston, LA, or Boston??",
+    "tags": [
+      "sports",
+      "basketball"
+    ],
+    "id": "fae98c9a-bba1-4aa2-a06e-983d4d6f1fa4"
+  },
+  {
+    "id": "7055eb8e-3315-4184-8a33-1c7bb5e5e42b",
+    "title": "New Entry!",
+    "description": "This is going to be the best post ever!",
+    "tags": [
+      "general",
+      "trivia"
+    ],
+    "date": "Sat Jun 30th"
+  }
+]

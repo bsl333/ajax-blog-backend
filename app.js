@@ -2,14 +2,14 @@ const express = require('express')
 const morgan = require('morgan')
 const bodyParser = require('body-parser')
 
-const blogRoutes = require('./scripts/routes/post')
+const blogRoutes = require('./scripts/routes/blog-post')
 const app = express()
 const port = process.env.PORT || 3000
 
 app.use(morgan('dev'))
 app.use(bodyParser.json())
 
-app.use('/blog-posts', blogRoutes)
+app.use('/blog-post', blogRoutes)
 
 app.use((req, res, next) => {
   next({ status: 404, message: 'Route not found - 404' })
