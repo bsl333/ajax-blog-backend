@@ -33,9 +33,7 @@ const create = ({ title, description, tags, date }) => {
       date
     }
     blogs.push(blog)
-    const filePath = path.join(__dirname, '..', '..', 'data', 'blog-post-data.json')
-
-    fs.writeFileSync(filePath, JSON.stringify(blogs))
+    updateJsonFile()
 
     response = blog
   }
@@ -64,18 +62,40 @@ const update = (id, { title, description, tags }) => {
       blog.title = title || blog.title
       blog.description = description || blog.description
       blog.tags = tags || blog.tags
+      updateJsonFile()
       response = blog
     } else {
       errors.push(`Invalid Request - id is not valid`)
     }
   }
-
   response = errors.length ? { errors } : response
   return response
+}
+
+const destroy = (id) => {
+  const errors = []
+  let response
+
+  const blogIdx = blogs.findIndex(blog => blog.id === id)
+  if (blogIdx > -1) {
+    response = blogs.splice(blogIdx, 1)
+    updateJsonFile()
+  } else {
+    errors.push(`Blog with ${id} not found`)
+  }
+
+  return errors.length ? { errors } : response
+}
+
+
+const updateJsonFile = () => {
+  const filePath = path.join(__dirname, '..', '..', 'data', 'blog-post-data.json')
+  fs.writeFileSync(filePath, JSON.stringify(blogs))
 }
 
 module.exports = {
   getAllBlogs,
   create,
-  update
+  update,
+  destroy
 }

@@ -26,7 +26,17 @@ const update = (req, res, next) => {
   } else {
     res.json({data: result})
   }
+}
 
+const destroy = (req, res, next) => {
+  const { id } = req.params
+  const result = model.destroy(id)
+
+  if (result.errors) {
+    next({ status: 404, message: result.errors.join('; ') })
+  } else {
+    res.status(204).json(result)
+  }
 }
 
 
@@ -34,5 +44,6 @@ const update = (req, res, next) => {
 module.exports = {
   getAllBlogs,
   create,
-  update
+  update,
+  destroy
 }
