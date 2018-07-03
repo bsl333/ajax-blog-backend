@@ -11,7 +11,7 @@ app.use(morgan('dev'))
 app.use(bodyParser.json())
 app.use(cors())
 
-app.use('/blog-post', blogRoutes)
+app.use('/blogs', blogRoutes)
 
 app.use((req, res, next) => {
   next({ status: 404, message: 'Route not found - 404' })

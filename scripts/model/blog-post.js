@@ -6,8 +6,6 @@ blogs.forEach(blog => {
   blog.id = blog.id || uuid()
 });
 
-// console.log(blogs.slice(-1)[0].tags[0])
-
 const getAllBlogs = (limit) => {
   return limit ? blogs.slice(0, limit) : blogs
 }
@@ -21,9 +19,9 @@ const create = ({ title, description, tags, date }) => {
   if (!description) {
     errors.push(`Missing Description from body of request`)
   }
-  if (!tags && !tags.length) {
-    errors.push(`missing at least one tag/category in body of request`)
-  }
+  // if (!tags && !tags.length) {
+  //   errors.push(`missing at least one tag/category in body of request`)
+  // }
   if (!errors.length) {
     const blog = {
       id: uuid(),
